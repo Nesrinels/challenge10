@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="numbersInput">
+    <button id="calculate"> Result</button>
+    <p id="result"></p>
+
+
+    <script>
+        function eve (numbers){
+            let even = numbers.filter(number => number % 2 === 0)
+            if (even.length === 0){
+                return 0;
+            }
+            let sumOfEvens = even.reduce((acc, number) => acc + number, 0);
+      return sumOfEvens / even.length;
+        }
+        var numbersInput = document.getElementById('numbersInput')
+        var calculate = document.getElementById('calculate')
+        var result = document.getElementById('result')
+
+        document.getElementById('result').innerText = result;
+
+        calculate.addEventListener('click', () => {
+            let input = numbersInput.value;
+            let numbers = input.split('').map(Number);
+            let average = eve(numbers);
+            result.innerText = `Average of even numbers: ${average}`;
+        });
+    </script>
+</body>
+</html>
